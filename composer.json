@@ -1,0 +1,58 @@
+{
+    "name": "janyksteenbeek/laravel-moneybird-sync",
+    "description": "One-way synchronization of customer fields towards Moneybird",
+    "keywords": [
+        "janyksteenbeek",
+        "laravel",
+        "laravel-moneybird-sync"
+    ],
+    "homepage": "https://github.com/janyksteenbeek/laravel-moneybird-sync",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Janyk Steenbeek",
+            "email": "janyk@webmethod.nl",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "illuminate/contracts": "^9.0|^10.0",
+        "picqer/moneybird-php-client": "^0.34.1",
+        "spatie/laravel-package-tools": "^1.14.0"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.0",
+        "nunomaduro/collision": "^6.0",
+        "nunomaduro/larastan": "^2.0.1",
+        "orchestra/testbench": "^7.0",
+        "phpstan/extension-installer": "^1.1",
+        "phpstan/phpstan-deprecation-rules": "^1.0",
+        "spatie/laravel-ray": "^1.26"
+    },
+    "autoload": {
+        "psr-4": {
+            "Janyk\\LaravelMoneybirdSync\\": "src"
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": "@php ./vendor/bin/testbench package:discover --ansi",
+        "analyse": "vendor/bin/phpstan analyse",
+        "format": "vendor/bin/pint"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "phpstan/extension-installer": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Janyk\\LaravelMoneybirdSync\\MoneybirdSyncServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
