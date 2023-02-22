@@ -2,7 +2,6 @@
 
 namespace Janyk\LaravelMoneybirdSync\Traits;
 
-use Illuminate\Support\Facades\Log;
 use Janyk\LaravelMoneybirdSync\Exceptions\MoneybirdSyncException;
 use Picqer\Financials\Moneybird\Connection;
 use Picqer\Financials\Moneybird\Exceptions\ApiException;
@@ -44,7 +43,7 @@ trait IsMoneybirdContact
         }
 
         // Set the customer ID including the set prefix
-        $contact->customer_id = config('moneybird-sync.customer_id_prefix') . $this->{$fields['customer_id']};
+        $contact->customer_id = config('moneybird-sync.customer_id_prefix').$this->{$fields['customer_id']};
 
         // Try saving the contact
         try {
@@ -75,5 +74,5 @@ trait IsMoneybirdContact
         return $this->saveQuietly();
     }
 
-    private abstract function saveQuietly(array $options = []);
+    abstract private function saveQuietly(array $options = []);
 }
